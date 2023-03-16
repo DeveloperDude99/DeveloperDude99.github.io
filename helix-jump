@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+<Title>Jumpy Ball</Title>
+<head>
+<script type="text/javascript">
+var main = function(){
+//Thumbnail
+//{
+var thumbnail, getThumb = "";
+//}
+
+//Leaderboard
+//{
+var leaderboard = [
+    ["Arrowhead Co.", 13649],
+    ["Ethan Botha", 2324],
+    ["🐧 MrPenguin2 🐧", 4401],
+    ["Dancing Doggle", 5599],
+    ["Tsunamon", 1200],
+    ["noahware", 74655],
+    ["Clayton", 46587],
+    ["Kochendorfer,Zachary", 20134],
+    ["chris316213", 2326],
+    ["Star Traveler", 5039],
+    ["Lightning McCode", 2267],
+    ["Thanksbeardgod", 3789],
+    ["CHRISTIAN SCHOOL TRY HARD", 7160],
+    ["WWescoat", 5128],
+    ["DavidJAllen", 3821],
+    ["MaxWhitten", 3338],
+    ["20khagerty", 11169],
+    ["megamanwhiz", 13124],
+    ["ASSASSIN", 61723],
+    ["Gray Strickland", 4898],
+    ["raff", 5395],
+    ["20khagerty", 108821],
+    ["PriSSSSM", 4456],
+    ["Matias M", 11904],
+    ["HaZard_Luke", 27777],
+    ["Caleb Taylor", 15028],
+    ["Maria Alex", 23588],
+    ["Ellie Sexton", 13232],
+    ["GrantGoins", 46588],
+    ["Brady Beard", 1929],
+    ["iHack", 2145],
+    ["timestruck", 1827],
+    ["PanGalacticGargleBlaster", 6197],
+    ["Nalin Theodore", 2072],
+    ["Programster", 29080],
+    ["Imgbrentlinger", 5718],
+    ["Akiva Rosenberg", 65583],
+    ["HoneyBadger1015", 61456],
+    ["Jcofield.o", 17115],
+    ["Bowtieman", 72190],
+    ["Dylan721668", 6694],
+    ["Computer?", 125670],
+    ["Salamander Maniacs YT", 65576],
+    ["Nikyan", 33740],
+    ["braxtonbailey", 65386],
+    ["The#1Pr🥔grammer", 88321],
+    ["big sad", 62055],
+    ["Austin", 43236],
+    ["WWescoat", 9325],
+    ["manny benitez", 5559],
+    ["Robert McKenzie", 19898],
+    ["Flagilament", 7824],
+    ["angel.cruz", 40198],
+    ["ACAlfredo", 1544],
+    ["Devion Rennier", 6113],
+    ["Declan Ross", 559],
+    ["Andrew Karr", 3611],
+    ["cool guy 24", 6552],
+    ["misaboo918", 14925],
+    ["bcruse12", 4880],
+    ["xxxtentacion", 14891],
+    ["Lampony Snicket", 5000],
+    ["Aidan", 4276],
+    ["Ethan Lee", 20937],
+    ["Noah", 7785],
+    ["siddadi1819", 4222],
+    ["J.Ramirez", 1653],
+    ["anandb", 1578],
+    ["noarwhalmoo", 8173],
+    ["Ethan Carpintero", 3157],
+    ["511Slloth", 4699],
+    ["BloodyBaron", 7383],
+    ["HenryMcKeon3", 7649],
+    ["jelly135", 15934],
+    ["culobCoder", 30567],
+    ["samson nwobi", 80921],
+    ["LightningMc Code", 13198],
+    ["LiquidKetchup", 1772],
+    ["Declan Gibson", 2118],
+    ["DaZe_sneenzy", 2377],
+    ["Light in the Dark", 4114],
+    ["K G", 1712],
+    ["erand05", 5130],
+    ["Angus MacGyver", 5916],
+    ["CAMREN ALEXZANDER HUDSON", 8577],
+    ["jedielijaho0", 125890],
+    ["AnimTheTree", 5054],
+    ["EmilyGRidenour", 7038],
+    ["KikiNoelle", 1438],
+    ["~The Mailbox Programmer~", 1355],
+    ["Kochendorfer.Zackary", 40751],
+    ["Wolf Studios", 4867],
+    ["hmcknight01", 9685],
+    ["Jeremy", 5008],
+    ["elijah", 3998],
+    ["Jay Rosa", 1756],
+    ["Harrison P. Cevasco", 9127],
+    ["Hotrod", 14567],
+    ["A RANDOM GUY", 91094],
+    ["Jo$h", 71234],
+    ["Finder", 10919],
+    ["Sye", 6407],
+    ["Rohaam", 2268],
+    ["CubsFan41", 2515],
+    ["Benny", 13735],
+    ["KingSwords", 9168],
+    ["Alexander O.", 17030],
+    ["Jilian", 196],
+    ["Rebekah R.", 1243],
+    ["Israel", 11532],
+    ["Mr.JPrograms", 4851],
+    ["AuttumStar", 929],
+    ["Kingslay productions", 2113],
+    ["₱ⱤØ₲Ɽ₳₥₥ł₦₲ ₭ł₦₲", 114898],
+    ["👑👑👑Aidair Sanchez👑👑", 11657],
+    ["T̵̢̹̤͑̌h̵̗̹̞͉̼̠̲̚ę̸̩̼̘̀̐͜͝n̴͎̼̜͙̜̻̾̑̋̔r̸͎̬̱̻͚̓̋̊͊͝y̵̫̓̉̑͗̈́", 5238],
+    ["мя. Lємoиѕ", 2951],
+    ["Duck Dino", 10679],
+    ["benyaminaharon739", 109724],
+    ["ツ🅷🅰🅲🅺🅴🆁 🅿🆁🅾🅳", 1342],
+    ["❄PopsicleBoi❄", 4187],
+    ["𝕀ℕ𝔽𝕀𝕃𝕋ℝ𝔸𝕋𝕀𝕆ℕ", 4340],
+];
+var sortArr = function(arr, ind){
+    for(var i = 0; i < arr.length - 1; i++){
+        for(var j = i + 1; j < arr.length; j++){
+            if(arr[j][ind] >= arr[i][ind]){
+                var temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+                if(arr[j][0] === arr[i][0]){
+                    arr.splice(i, 1);
+                }
+            }
+        }
+    }
+};
+sortArr(leaderboard, 1);
+//}
+
+//Preliminary configurations
+//{
+smooth();
+noStroke();
+textAlign(CENTER, CENTER);
+
+var verify = 0;
+//}
+
+//Fonts
+//{
+var fonts = [createFont("calibri Bold"), createFont("arial black Bold Italic"), createFont("arial black Bold")];
+//}
+
+//Image for pillar
+//{
+background(255);
+background(0);
+
+fill(255);
+ellipse(125 / 2, 55, 125, 110);
+
+var Ellipse = get(0, 0, 125, 110);
+
+background(255);
+
+fill(0, 7.5);
+for(var i = 0; i < 9; i++){
+    rect(0, 0, i * 2, 110);
+}
+
+var ShadeEllipse = get(0, 0, 125, 110);
+//ShadeEllipse.mask(Ellipse);
+//}
+
+//Colors
+//{
+//Color schemes
+var palettes = [
+    //central column, platform color, background, ball, lava     
+    [color(255, 255, 255), color(249, 241, 219), color(252, 213, 129), color(213, 41, 65), color(153, 13, 53)],
+    [color(248, 244, 227), color(255, 137, 102), color(42, 43, 42), color(112, 108, 157), color(229, 68, 109)],
+    [color(255, 228, 250), color(225, 218, 189), color(71, 99, 152), color(141, 200, 178), color(255, 196, 35)],
+    [color(249, 234, 225), color(19, 190, 156), color(170, 153, 143), color(204, 139, 134), color(125, 79, 80)],
+    [color(228, 214, 167), color(200, 130, 196), color(28, 17, 10), color(80, 162, 167), color(155, 41, 21)],
+    [color(165, 196, 212), color(123, 109, 141), color(73, 59, 42), color(132, 153, 177), color(89, 63, 98)],
+    [color(255, 238, 242), color(255, 200, 251), color(89, 87, 88), color(185, 188, 223), color(255, 146, 194)],
+    [color(255, 253, 253), color(240, 225, 0), color(11, 60, 73), color(183, 190, 188), color(125, 35, 109)],
+    [color(203, 121, 58), color(154, 3, 30), color(50, 19, 37), color(95, 15, 64), color(252, 220, 77)],
+    [color(178, 221, 247), color(76, 181, 174), color(100, 180, 200), color(202, 186, 200), color(255, 32, 62)],
+    [color(178, 221, 247), color(48, 107, 172), color(20, 27, 65), color(11, 156, 235), color(145, 142, 244)],
+    [color(232, 233, 243), color(177, 229, 242), color(39, 38, 53), color(166, 166, 168), color(200, 200, 200)],
+    [color(247, 255, 221), color(219, 161, 89), color(232, 233, 155), color(239, 200, 128), color(208, 227, 204)],
+    [color(0, 117, 196), color(214, 81, 8), color(239, 160, 11), color(239, 160, 11), color(89, 31, 10)],
+    [color(240, 231, 216), color(166, 58, 80), color(177, 155, 150), color(186, 110, 110), color(201, 223, 74)],
+    [color(246, 216, 174), color(244, 211, 94), color(46, 64, 87), color(8, 61, 119), color(218, 65, 103)],
+    [color(241, 242, 235), color(86, 98, 70), color(74, 74, 72), color(164, 194, 165), color(216, 218, 211)],
+    [color(255, 194, 226), color(110, 68, 255), color(184, 146, 255), color(255, 144, 179), color(239, 122, 133)],
+    [color(228, 223, 218), color(115, 29, 216), color(193, 102, 107), color(72, 169, 166), color(212, 180, 131)],
+    [color(239, 214, 172), color(67, 37, 52), color(40, 61, 101), color(54, 88, 85), color(196, 73, 0)],
+    [color(145, 245, 173), color(116, 82, 150), color(99, 42, 80), color(139, 158, 183), color(194, 232, 18)],
+    [color(212, 228, 188), color(150, 172, 183), color(72, 35, 60), color(54, 85, 143), color(64, 55, 110)],
+    [color(161, 204, 165), color(65, 93, 67), color(17, 29, 19), color(112, 151, 117), color(143, 155, 190)],
+    [color(213, 230, 141), color(107, 5, 4), color(36, 16, 35), color(163, 50, 11), color(71, 160, 37)],
+    [color(251, 251, 249), color(166, 52, 70), color(0, 0, 4), color(126, 25, 70), color(12, 98, 145)],
+];
+var Cur_Pal = 1;
+//Colors of specific aspects
+var central = color(255), platform = color(255), bg = color(255), ball = color(255), lava = color(255);
+//Updates palette
+var switchCol = function(col1, col2){
+    var r = red(col1), g = green(col1), b = blue(col1);
+    
+    r -= (r - red(col2)) / 10;
+    g -= (g - green(col2)) / 10;
+    b -= (b - blue(col2)) / 10;
+    
+    var newCol = color(r, g, b);
+    return(newCol);
+};
+var updatePalette = function(index){
+    if(index === undefined){
+        index = Cur_Pal % (palettes.length - 1);
+    }
+    
+    central = switchCol(central, palettes[index][0]);
+    platform = switchCol(platform, palettes[index][1]);
+    bg = switchCol(bg, palettes[index][2]);
+    ball = switchCol(ball, palettes[index][3]);
+    lava = switchCol(lava, palettes[index][4]);
+};
+for(var i = 0; i < 25; i++){
+    updatePalette();
+}
+//}
+
+//Arrays
+//{
+//The different pages
+var scenes = [true, false, false, false];
+//Used for arrow keys
+var keys = [];
+//An array containing all layers
+var layers = [];
+//Shows this.points gained
+var ptsEarned = [];
+//For menu
+var titles = [["Endless", 0], ["Play", 0], ["Leaderboard", 0], ["Credits", 0]];
+//}
+
+//Player object
+//{
+var p = {
+    begin : false,
+    mode : "play",
+    score : 0, highscore : 0,
+    
+    y : 215,
+    prevLev : 0, level : 0,
+    current : 0, goal : 15,
+    
+    jump : -9, maxJump : 9,
+    
+    Level : 1, gameOver : false,
+    
+    splatter : [],
+    
+    display : function(){
+        pushMatrix();
+            translate(width / 2, this.y);
+            scale(1 + sin(this.bounce & 180) / 5, 1 - sin(this.bounce % 180) / 5);
+            
+            if(this.level - this.prevLev > 2){
+                fill(255, 100, 50);
+                ellipse(0, 0, 40, 40);
+                for(var i = 0; i < 5; i++){
+                    for(var j = 0; j < 2; j++){
+                        stroke(255, 100 * j, 50 * j, 180);
+                        strokeWeight(30 - i * 6);
+                        
+                        var randy = random(-3, 3) * i;
+                        line(randy, i * -15, randy, i * -15 - 10);
+                    }
+                }
+            }
+            noStroke();
+            
+            if(this.level - this.prevLev > 2){
+                fill(lerpColor(this.fill, color(255, 50, 0), 0.6));
+            } else {
+                fill(this.fill);
+            }
+            ellipse(0, 0, 30, 30);
+            
+            fill(255, 7.5);
+            for(var i = 0; i < 10; i++){
+                ellipse(2 + i / 2, -2 - i / 2, 20 - i / 2, 20 - i / 2);
+            }
+        popMatrix();
+        
+        for(var i = 0; i < this.splatter.length; i++){
+            fill(this.fill);
+            ellipse(this.splatter[i][0], this.splatter[i][1], this.splatter[i][4], this.splatter[i][4]);
+            
+            stroke(255, 50);
+            strokeWeight(this.splatter[i][4] / 3);
+            noFill();
+            arc(this.splatter[i][0], this.splatter[i][1], this.splatter[i][4] / 3, this.splatter[i][4] / 3, 270, 360);
+            noStroke();
+            
+            this.splatter[i][0] += this.splatter[i][2];
+            this.splatter[i][1] += this.splatter[i][3];
+            this.splatter[i][3] += 0.25;
+            
+            if(this.splatter[i][0] < 0 || this.splatter[i][0] > width || this.splatter[i][1] < 0 || this.splatter[i][1] > height){
+                this.splatter.splice(i, 1);
+            }
+        }
+        
+        if(!p.begin){
+            fill(0, 150);
+            rect(0, 100, width, 400);
+            
+            fill(255);
+            textFont(fonts[0], 36);
+            text("ARROW KEYS\nor SWIPE\nto move.\n\nAVOID discolored\n areas on the\nplatforms.", width / 2, height / 2 - 30);
+            fill(255, 200, 50);
+            text("> OK <", width / 2, height / 2 + 150);
+            
+            if(mouseY > height / 2 + 130 && mouseY < height / 2 + 170){
+                this.point = true;
+                if(mouseIsPressed && verify === 0){
+                    this.begin = true;
+                    this.point = false;
+                }
+            } else {
+                this.point = false;    
+            }
+        }
+        
+        if(this.point){ cursor("pointer"); } else { cursor("default"); }
+        
+        return this;
+    },
+    run : function(){
+        this.fill = ball;
+        
+        this.jump = constrain(this.jump, -this.maxJump, this.maxJump);
+        this.y += this.jump;
+        this.jump += 0.6;
+        
+        if(this.mode === "endless"){
+            this.goal = this.level + 10;
+        }
+        
+        this.bounce -= (this.bounce - 0) / 4;
+        
+        return this;
+    },
+    move : function(){
+        if(this.y >= 220){
+            this.y = 220;
+            for(var i = 0; i < layers.length; i++){
+                layers[i].l -= this.jump;
+            }
+            for(var i = 0; i < this.splatter.length; i++){
+                this.splatter[i][1] -= this.jump;
+            }
+        }
+        
+        if(keys[RIGHT]){
+            for(var i = 0; i < layers.length; i++){
+                layers[i].angle += 5;
+            }
+        }
+        if(keys[LEFT]){
+            for(var i = 0; i < layers.length; i++){
+                layers[i].angle -= 5;
+            }
+        }
+        
+        return this;
+    },
+    Score : function(){
+        textFont(fonts[0], 70);
+        pushMatrix();
+            translate(width / 2, 70);
+            
+            fill(0);
+            text(this.score, 0, 0);
+            fill(0, 100);
+            text(this.score, -2, 1);
+        popMatrix();
+        
+        this.highscore = max(this.score, this.highscore);
+        
+        if(this.mode === "play"){
+            fill(255, 50, 50);
+            rect(width - 20, 10, 40, height / 2 + 20, 100);
+            rect(width - 80, -20, 100, 50, 100);
+            
+            fill(255);
+            rect(width - 14, 12, 20, constrain(height / 2 * this. current / this.goal + 6, 0, height / 2 + 6), 100);
+            rect(width - 76, -22, 96, 46, 100);
+            
+            fill(lerpColor(color(255), color(0), 0.1));
+            rect(width - 10, 30, 6, constrain(height / 2 * this.current / this.goal - 20, 0, height / 2 - 20), 100);
+            
+            fill(0);
+            textFont(fonts[0], 18);
+            text("LVL " + this.Level, width - 35, 10);
+            
+            this.current -= (this.current - this.level) / 4;
+        }
+    },
+    GameOver : function(){
+        fill(0, 120);
+        rect(0, 0, width, height);
+        
+        fill(255);
+        rect(0, 120, width, 60);
+        textFont(fonts[2], 30);
+        text("HIGHSCORE : " + this.highscore, width / 2, 90);
+        
+        fill(255, 100, 20);
+        textFont(fonts[2], 50);
+        text("SCORE : " + this.score, width / 2, 150);
+        
+        fill(255);
+        rect(0, 467.5, width, 45);
+        textFont(fonts[2], 50);
+        text("Game Over", width / 2, 330);
+        text(">.<", width / 2, 270);
+        
+        fill(255, 100, 20);
+        textFont(fonts[2], 35);
+        text("RETRY    MENU", width / 2, 490);
+        
+        this.point = false;
+        if(mouseY > 470 && mouseY < 510){
+            if(mouseX > 230 && mouseX < 345){
+                this.point = true;
+                if(mouseIsPressed && verify === 0){
+                    scenes[1] = false;
+                    scenes[0] = true;
+                    this.point = false;
+                    this.Reset();
+                    
+                    verify++;
+                }
+            } else if(mouseX < 185 && mouseX > 55){
+                this.point = true;
+                if(mouseIsPressed && verify === 0){
+                    this.Reset();
+                    this.point = false;
+                }
+            } else {
+                this.point = false;
+            }
+        } else {
+            this.point = false;
+        }
+    },
+    Win : function(){
+        fill(0, 120);
+        rect(0, 0, width, height);
+        
+        fill(255);
+        rect(0, 120, width, 60);
+        textFont(fonts[2], 30);
+        text("HIGHSCORE : " + this.highscore, width / 2, 90);
+        
+        fill(255, 100, 20);
+        textFont(fonts[2], 50);
+        text("SCORE : " + this.score, width / 2, 150);
+        
+        fill(255);
+        rect(0, 467.5, width, 45);
+        textFont(fonts[2], 50);
+        text("Next Level", width / 2, 330);
+        text("^o^", width / 2, 270);
+        
+        fill(255, 100, 20);
+        textFont(fonts[2], 35);
+        text("NEXT     MENU", width / 2, 490);
+        
+        this.point = false;
+        if(mouseY > 470 && mouseY < 510){
+            if(mouseX > 225 && mouseX < 340){
+                this.point = true;
+                if(mouseIsPressed && verify === 0){
+                    this.Level++;
+                    scenes[1] = false;
+                    scenes[0] = true;
+                    this.point = false;
+                    this.Reset();
+                    
+                    verify++;
+                }
+            } else if(mouseX < 185 && mouseX > 55){
+                this.point = true;
+                if(mouseIsPressed && verify === 0){
+                    this.Level++;
+                    this.Reset();
+                    this.point = false;
+                }
+            } else {
+                this.point = false;
+            }
+        } else {
+            this.point = false;
+        }
+    },
+    Reset : function(){
+        this.score = 0;
+        this.y = 215;
+        this.prevLev = 0;
+        this.level = 0;
+        this.current = 0;
+        this.goal = constrain(this.Level + 15, 0, 30);
+        this.jump = -9;
+        this.gameOver = false;
+        this.splatter = [];
+        Cur_Pal = this.Level % (palettes.length - 1);
+        layers = [];
+    },
+};
+if(p.score !== 0 && p.highscore !== 0){
+    throw {message : "NO CHEATING!" };   
+}
+//}
+
+//Layer object constructor
+//{
+var Layer = function(y, f, lf, l, lava, crax){
+    //The y-position of the layer
+    this.y = y;
+    //The "goal" y-position of the layer
+    this.l = l;
+    //Angle offset
+    this.angle = random() * 360;
+    
+    //Color
+    this.f = f;
+    this.lavaf = lf;
+    
+    //Open angles
+    if(crax !== undefined){
+        this.cracks = crax;
+    } else {
+        this.cracks = round(random() * 2 + 1);
+    }
+    //Location of "lava spots"
+    if(lava !== undefined){
+        this.lava = 0;
+    } else {
+        this.lava = constrain(round(random() * 3 + 1), 0, 6 - this.cracks);
+    }
+    this.lavaSpots = [[], [], [], [], []];
+    for(var i = 0; i < this.lava; i++){
+        var randy = round(random() * 330 * 6) / 6;
+        this.lavaSpots[i][0] = randy;
+        this.lavaSpots[i][1] = randy + 30;
+        for(var j = 0; j < this.cracks; j++){
+            if(j * 360 / this.cracks + 360 / this.cracks - 60 + 1 < this.lavaSpots[i][0] + 30){
+                this.lavaSpots[i][0] = j * 360 / this.cracks + 360 / this.cracks - 90;
+                this.lavaSpots[i][1] = j * 360 / this.cracks + 360 / this.cracks - 60;
+            }
+        }
+    }
+    
+    //Splatter
+    this.splat = []; 
+    
+    //Whether or not its destroyed
+    this.dead = false;
+    this.destroyed = false;
+};
+Layer.prototype.display = function() {
+    //The sides of the platform
+    if(!this.dead){
+        fill(lerpColor(this.f, color(0), 0.2));
+    } else if (this.destroyed){
+        fill(lerpColor(color(250, 50, 0), color(0), 0.2), this.y * 2);
+    } else {
+        fill(lerpColor(color(250, 200, 100), color(0), 0.2), this.y * 2);
+    }
+    for(var i = 0; i < 30; i++){
+        for(var j = 0; j < this.cracks; j++){
+            if(i * 12 > j * 360 / this.cracks - 12 && i * 12 < j * 360 / this.cracks + 360 / this.cracks - 60){
+                quad(cos(i * 12 + this.angle) * this.w + width / 2, sin(i * 12 + this.angle) * this.h + this.y, cos(i * 12 + this.angle) * this.w + width / 2, sin(i * 12 + this.angle) * this.h + 35 + this.y, cos(i * 12 + 13 + this.angle) * this.w + width / 2, sin(i * 12 + 13 + this.angle) * this.h + 35 + this.y, cos(i * 12 + 13 + this.angle) * this.w + width / 2, sin(i * 12 + 13 + this.angle) * this.h + this.y);
+            }
+        }
+    }
+    
+    //To make sure there aren't side holes in the open angles
+    if(!this.dead){
+        fill(lerpColor(this.f, color(0), 0.4));
+    } else if (this.destroyed){
+        fill(lerpColor(color(250, 50, 0), color(0), 0.4), this.y * 2);
+    } else {
+        fill(lerpColor(color(250, 200, 100), color(0), 0.4), this.y * 2);
+    }
+    for(var i = 0; i < this.cracks; i++){
+        if((this.angle + i * 360 / this.cracks + 1) % 360 > 90 && (this.angle + i * 360 / this.cracks + 1) % 360 < 270){
+            quad(cos(this.angle + i * 360 / this.cracks) * (151 - this.y / 24) / 2 + width / 2, sin(this.angle + i * 360 / this.cracks) * (this.y / 10 + 51) / 2 + this.y, cos(this.angle + i * 360 / this.cracks) * (151 - this.y / 24) / 2 + width / 2, sin(this.angle + i * 360 / this.cracks) * (this.y / 10 + 51) / 2 + this.y + 35, cos(this.angle + i * 360 / this.cracks) * this.w + width / 2, sin(this.angle + i * 360 / this.cracks) * this.h + this.y + 35, cos(this.angle + i * 360 / this.cracks) * this.w + width / 2, sin(this.angle + i * 360 / this.cracks) * this.h + this.y);
+        }
+    }
+    for(var i = 0; i < this.cracks; i++){
+        if((this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) % 360 < 90 || (this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) % 360 > 270){
+            quad(cos(this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) * (151 - this.y / 24) / 2 + width / 2, sin(this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) * (this.y / 10 + 51) / 2 + this.y, cos(this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) * (151 - this.y / 24) / 2 + width / 2, sin(this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) * (this.y / 10 + 51) / 2 + this.y + 35, cos(this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) * this.w + width / 2, sin(this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) * this.h + this.y + 35, cos(this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) * this.w + width / 2, sin(this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) * this.h + this.y);
+        }
+    }
+    
+    //Used to know whether tha ball should bounce
+    this.inLine = 0;
+    //Used to know when the ball touches lava
+    this.onLava = 0;
+    
+    //Creates the top layer of the platform
+    if(!this.dead){
+        fill(this.f);
+    } else if (this.destroyed){
+        fill(250, 50, 0, this.y * 2);
+    } else {
+        fill(250, 200, 100, this.y * 2);
+    }
+    for(var i = 1; i <= this.cracks; i++){
+        arc(width / 2, this.y, 300 - this.y / 12, this.y / 5 + 100, this.angle + i * 360 / this.cracks + 1, this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1);
+        if((this.angle + i * 360 / this.cracks + 360 / this.cracks - 60 + 1) % 360 < 80 && (this.angle + i * 360 / this.cracks + 360 / this.cracks + 1) % 360 > 100){
+            this.inLine++;
+        }
+    }
+    if(!this.dead){
+        fill(this.lavaf);
+    } else if (this.destroyed){
+        fill(250, 50, 0, this.y * 2);
+    } else {
+        fill(250, 200, 100, this.y * 2);
+    }
+    for(var i = 1; i <= this.lava; i++){
+        arc(width / 2, this.y, 300 - this.y / 12, this.y / 5 + 100, this.angle + this.lavaSpots[i][0], this.angle + this.lavaSpots[i][1]);
+        if((this.angle + this.lavaSpots[i][0]) % 360 < 100 && (this.angle + this.lavaSpots[i][1]) % 360 > 80){
+            this.onLava++;
+        }
+    }
+    
+    if(this.cracks === 0){
+        fill(lerpColor(this.f, color(0), 0.2));
+        for(var i = 0; i < 7; i++){
+            ellipse(width / 2, this.y + i * 5, this.w * 2, this.h * 2);    
+        }
+        
+        fill(this.f);
+        ellipse(width / 2, this.y, this.w * 2, this.h * 2);
+    }
+    
+    //Splatter on the surface
+    for(var i = 0; i < this.splat.length; i++){
+        fill(p.fill, this.splat[i][1]);
+        ellipse(cos(this.splat[i][0] + this.angle + this.splat[i][2]) * this.w * (2 / 3 + this.splat[i][3] / 50) + width / 2, sin(this.splat[i][0] + this.angle + this.splat[i][2]) * this.h * (2 / 3 + this.splat[i][3] / 50) + this.y, this.w / this.splat[i][4], this.h / this.splat[i][4]); 
+        
+        if(!p.gameOver){
+            this.splat[i][1] -= 3;
+        }
+        if(this.splat[i][1] <= 0){
+            this.splat.splice(i, 1);
+        }
+    }
+    
+    //To make a uniform central column
+    
+    fill(central);
+    ellipse(width / 2, this.y, this.w, this.h);
+    quad(width / 2 - this.w / 2, this.y, width / 2 + this.w / 2, this.y, width / 2 + 75, 0, width / 2 - 75, 0);
+    
+    //Shade of the centraol column
+    fill(0, 7.5);
+    for(var i = 0; i < 10; i++){
+        quad(width / 2 - this.w / 2, this.y + 3, width / 2 - this.w / 2 + i * 2, this.y + pow(i, 0.05) * (this.y) / 15 + (height - this.y) / 50 + 2, width / 2 - 75 + i * 2, 0, width / 2 - 75, 0);
+    }
+    
+    return this;
+};
+Layer.prototype.run = function(){
+    if(this.y < 150){
+        this.dead = true;
+    }
+    
+    //Makes sure "this.angle" is between 0 and 360
+    if(this.angle < 0){
+        this.angle += 360;    
+    }
+    this.angle = this.angle % 360;
+    
+    //Checks for bouncing
+    if((this.inLine === 0 || this.onLava !== 0) && p.y > 215 && this.y <= 175 && this.y > 165 && !this.dead){
+        if(this.inLine === 0){
+            this.splat.push([(-this.angle + 90) % 360, 255, 0, 0, 5]);
+            for(var i = 0; i < 10; i++){
+                this.splat.push([(-this.angle + 90) % 360, 255, random(-10, 10), random(-10, 10), random() * 10 + 5]);
+            }
+            
+            for(var i = 0; i < layers.length; i++){
+                layers[i].l = (layers.length - i - 1) * 200 + 175;    
+            }
+            
+            for(var i = 0; i < 10; i++){
+                p.splatter.push([width / 2, p.y, random(-5, 5), random(-7, 5), random() * 10]);
+            }
+            
+            if(p.level - p.prevLev < 3 || this.cracks === 0){
+                p.y = 215;
+                p.jump = -p.maxJump;
+                p.bounce = 360;
+            } else {
+                p.level++;
+                if(p.mode === "play"){
+                    p.score += (p.level - p.prevLev) * 2 * p.Level;
+                    ptsEarned.push([(p.level - p.prevLev) * p.Level * 2, 255]);
+                } else {
+                    p.score += (p.level - p.prevLev) * 2 * round(pow(log(p.level + 2), 2));
+                    ptsEarned.push([(p.level - p.prevLev) * 2 * round(pow(log(p.level + 2), 2)), 255]);
+                }
+                p.prevLev += 2;
+                this.destroyed = true;
+                this.dead = true;
+            }
+            p.prevLev = p.level;
+        }
+        if(this.onLava !== 0 && !this.dead){
+            p.jump = 0;
+            p.y = 215;
+            p.gameOver = true;
+        }
+    }
+    
+    //Makes sure width and height are updated
+    this.w = 150 - this.y / 24;
+    this.h = this.y / 10 + 50;
+    
+    //Updates the y-position
+    this.y -= (this.y - this.l) / 4;
+};
+//}
+
+//Populates "layers" with instances of Layer
+//{
+for(var i = 0; i < 5; i++){
+    layers.unshift(new Layer(3000, platform, lava, i * 200 + 175, 0));
+}
+//}
+
+//User-defined functions
+//{
+//Creates awesome text
+var Text = function(m, x, y, f){
+    pushMatrix();
+        translate(x, y);
+        
+        fill(f, 25);
+        for(var i = 1; i < 5; i++){
+            for(var j = 1; j < 5; j++){
+                pushMatrix();
+                    text(m, cos(i * 72) * j * 1.8, sin(i * 72) * j * 1.8);
+                popMatrix();
+            }
+        }
+        fill(0, 0, 0, 150);
+        text(m, 0, 0);
+    popMatrix();
+};
+//Handles and manages the layers
+var renderLayers = function(){
+    //Adds a new layer and makes sure "layers" is never lacking
+    if(layers.length < 6 && p.goal - p.level >= 5){
+        if(layers.length === 0){
+            for(var i = 0; i < 5; i++){
+                layers.unshift(new Layer(3000, platform, lava, i * 200 + 175, 0));
+            }
+        } else if(p.goal - p.level === 5){
+            layers.unshift(new Layer(1000, platform, lava, 1175, 0, 0));
+        } else {
+            layers.unshift(new Layer(1000, platform, lava, 1175));
+        }
+    }
+    
+    //Animates the layers
+    for(var i = 0; i < layers.length; i++){
+        layers[i].display().run();
+    }
+    
+    //Removes layers that go above boundary
+    for(var i = 0; i < layers.length; i++){
+        if(layers[i].y < 150 && !layers[i].dead){
+            p.level++;
+            if(p.mode === "play"){
+                p.score += (p.level - p.prevLev) * p.Level;
+                ptsEarned.push([(p.level - p.prevLev) * p.Level, 255]);
+            } else {
+                p.score += (p.level - p.prevLev) * round(pow(log(p.level + 2), 2));
+                ptsEarned.push([(p.level - p.prevLev) * round(pow(log(p.level + 2), 2)), 255]);
+            }
+        }
+        if(layers[i].y < 0){
+            layers.splice(i, 1);
+            if(p.mode === "endless" && p.level % 6 === 0){
+                Cur_Pal = round(random() * (palettes.length - 1));
+            }
+        }
+    }
+};
+//Handles and manages the player
+var renderPlayer = function(){
+    //Animates the player
+    p.display();
+    if(!p.gameOver && p.begin){
+        p.move().run();
+    }
+};
+//Handles the playing option
+var PlayScene = function(){
+    fill(bg);
+    rect(-1, -1, width + 2, height + 2);
+    
+    fill(255, 20);
+    quad(0, height - 180, width, -80, width, 40, 0, height - 60);
+    quad(0, height - 30, width, 70, width, 140, 0, height + 50);
+    
+    //Central column
+    fill(central);
+    quad(width / 2 - 125 / 2, height, width / 2 + 125 / 2, height, width / 2 + 75, 0, width / 2 - 75, 0);
+    
+    renderLayers();
+    renderPlayer();
+    
+    //Score
+    p.Score();
+    
+    //Pluses
+    for(var i = 0; i < ptsEarned.length; i++){
+        pushMatrix();
+            translate(width / 2, 120 + ptsEarned[i][1]);
+            scale(0.9 + ptsEarned[i][1] / 800);
+            
+            fill(250, 200, 100, ptsEarned[i][1]);
+            textFont(fonts[1], 80);
+            text("+" + ptsEarned[i][0], 0, 0); 
+        popMatrix();
+        
+        ptsEarned[i][1] -= 10;
+        
+        if(ptsEarned[i][1] <= 0){
+            ptsEarned.splice(i, 1);
+        }
+    }
+    
+    //Updates color scheme
+    updatePalette();
+    
+    //Win scene
+    if(p.level === p.goal && layers.length === 1){
+        p.Win();    
+    }
+    
+    //Game over scene
+    if(p.gameOver){
+        p.GameOver();
+    }
+};
+//General background
+var BG = function(){
+    if(layers.length === 0){
+        for(var i = 0; i < 5; i++){
+            layers.unshift(new Layer(3000, platform, lava, i * 200 + 175, 0));
+        }
+    }
+    
+    fill(bg);
+    rect(-1, -1, width + 2, height + 2);
+    
+    fill(255, 20);
+    quad(0, height - 180, width, -80, width, 40, 0, height - 60);
+    quad(0, height - 30, width, 70, width, 140, 0, height + 50);
+    
+    //Central column
+    fill(central);
+    quad(width / 2 - 125 / 2, height, width / 2 + 125 / 2, height, width / 2 + 75, 0, width / 2 - 75, 0);
+    
+    for(var i = 0; i < layers.length; i++){
+        layers[i].display();
+        layers[i].run();
+    }
+    
+    if(!scenes[0]){
+        textFont(fonts[2], 40);
+        Text("Back", 70, 560, color(255, 150, 50));
+        
+        if(mouseX < 120 && mouseY > 540){
+            cursor("pointer");
+            if(mouseIsPressed && verify === 0){
+                for(var i = 0; i < scenes.length; i++){
+                    scenes[i] = false;    
+                }
+                scenes[0] = true;
+                
+                cursor("default");
+                verify++;
+            }
+        } else {
+            cursor("default");    
+        }
+    }
+};
+//Menu
+var MenuScene = function(){
+    textFont(fonts[2], 80);
+    Text("Helix\nJump", width / 2, height / 2 - 150, color(50, 150, 250));
+    
+    textAlign(LEFT, CENTER);    
+    textFont(fonts[2], 40);
+    
+    for(var i = 0; i < titles.length; i++){
+        fill(255, 100);
+        rect(width / 2 - 120 - titles[i][1] * width, height / 2 + i * 65 + 5 - 25, titles[i][1] * width * 5, 50);
+        
+        pushMatrix();
+            translate(width / 2 - 160, height / 2 + i * 65 + 5);
+            if(mouseY > height / 2 + i * 65 - 20 && mouseY < height / 2 + i * 65 + 20){
+                titles[i][1] -= (titles[i][1] - 0.2) / 4;
+                
+                if(mouseIsPressed && verify === 0){
+                    scenes[0] = false;
+                    scenes[constrain(i - 1, 0, 4) + 1] = true;
+                    if(i === 0){
+                        p.mode = "endless";
+                    }
+                    if(i === 1){
+                        p.mode = "play";
+                    }
+                }
+            } else {
+                titles[i][1] -= (titles[i][1]) / 4;
+            }
+            scale(titles[i][1] + 1);
+            
+            Text(titles[i][0], 0, 0, color(255));
+        popMatrix();
+    }
+    textAlign(CENTER, CENTER);
+};
+//Ledaerboard
+var Leaderboard = function(){
+    textFont(fonts[2], 70);
+    Text("Leader\nboard", width / 2, height / 2 - 175, color(50, 150, 250));
+    
+    fill(0, 100);
+    rect(0, 240, width, height / 2 - 20);
+    
+    textAlign(LEFT, CENTER);    
+    textFont(fonts[2], 12);
+    for(var i = 0; i < leaderboard.length; i++){
+        fill(255, 255 - i * 15);
+        text((i + 1) + "]  " + leaderboard[i][0] + "     :     " + leaderboard[i][1], width / 2 - 150, i * 15 + 260);
+    }
+    textAlign(CENTER, CENTER);
+};
+//Credits
+var Credits = function(){
+    textFont(fonts[2], 80);
+    Text("Helix\nJump", width / 2, height / 2 - 150, color(50, 150, 250));
+    
+    textAlign(LEFT, CENTER);    
+    textFont(fonts[0], 30);
+    Text("All Code by\n    ARROWHEAD CO.\n\nBased on\nHELIX JUMP by\n    VOODOO", width / 2 - 160, height / 2 + 90, color(255, 255, 255));
+    textAlign(CENTER, CENTER);
+};
+//}
+
+//Draw function
+//{
+draw = function() {
+    background(255);
+    
+    if(scenes[1]){
+        PlayScene();
+    } else {
+        BG();
+    }
+    
+    if(scenes[0]){
+        MenuScene();
+    }
+    if(scenes[2]){
+        Leaderboard();
+    }
+    if(scenes[3]){
+        Credits();
+    }
+    
+    if(getThumb === "saycheese;]"){
+        Cur_Pal = 17;
+        
+        thumbnail = get(0, 0, width, height);
+        
+        fill(255);
+        rect(0, 0, width, height);
+        image(thumbnail, width * width / height / 4, 0, width * width / height, height);
+    }
+    
+    verify++;
+};
+//}
+
+//Other functions
+//{
+//In case user chooses to use mouse
+mousePressed = function(){
+    verify = 0;
+};
+mouseDragged = function(){
+    if(!p.gameOver && scenes[1] && p.begin){
+        for(var i = 0; i < layers.length; i++){
+            layers[i].angle += (pmouseX - mouseX) * 2;    
+        }
+    }
+};
+//Used for arrow keys
+keyPressed = function(){ keys[keyCode] = true; if(getThumb !== "saycheese;]"){getThumb += key.toString();} };
+keyReleased = function(){ keys[keyCode] = false; };
+//}
+};
+main();
+</script>
+</head>
